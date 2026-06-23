@@ -31,6 +31,7 @@ Existen dos opciones principales:
 La forma más sencilla y recomendada para gestionar paquetes en macOS es utilizando [Homebrew](https://brew.sh/):
 ```bash
 brew install python
-
+```
 ### Linux
 Python suele estar integrado en las distribuciones de Linux en versiones 3.xx, no hace falta realizar alguna instalación.
+
