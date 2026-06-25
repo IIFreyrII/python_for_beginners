@@ -35,3 +35,63 @@ brew install python
 ### Linux
 Python suele estar integrado en las distribuciones de Linux en versiones 3.xx, no hace falta realizar alguna instalación.
 
+##
+Al aprender Python, se puede encontrar algún paquete que querrá ser probado, lo que deriva en la simplicidad de un "pip install" que es una manera sencilla e irresponsable de gestionar paquetes, la cual  puede llevar a distintos errores. Para evitarlo, lo ideal es manejar entornos virtuales.
+
+### 1. Crear entornos virtuales
+El primer paso para aislar los paquetes del Sistema Operativo (SO), es crear entornos virtuales.
+
+### UNIX
+```
+python3.15 -m venv --prompt . .venv
+```
+
+### Windows
+```
+py -3.15 -m venv --prompt . .venv 
+```
+En dado caso de fallar el anterior, se puede sustituir por otra alternativa:
+```
+python3.15 -m venv --prompt . .venv
+```
+
+### 2. Activar los entornos virtuales
+Activar el entorno virtual hará que al escribir ```python```, este apuntará al intérprete en el entorno virtual. Este paso es completamente opcional pero útil.
+
+### Fish shell
+```
+source .venv/bin/activate.fish
+```
+
+### Bash shell
+```
+source .venv/bin/activate
+```
+
+### Powershell
+Para la powershell se requieren dos comandos. El primero sólo necesita ejecutarse una vez y reduce la seguridad de la Powershell para permitir la ejecución de scripts con firmas. Sin el primer comando, el segundo no funcionará.
+```
+Set-ExecutionPolicy RemoteSigned
+.venv\Scripts\Activate.ps1
+```
+
+### 3. Instalar los paquetes
+A este punto, ya debería ser posible usar los entornos virtuales y así evitar conflictos con instalaciones globales.
+
+### Si el entorno virtual está activado
+El siguiente comando sirve para instalar paquetes mediante pip
+```
+python -m pip install {package} --upgrade pip
+```
+
+### Si el entorno virtual no está activo
+
+### UNIX
+```
+.venv/bin/python -m pip install --upgrade pip
+```
+
+### Windows
+```
+.venv\Scripts\python -m pip install --upgrade pip
+```
